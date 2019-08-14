@@ -1,80 +1,85 @@
 package com.learning.filemanager.model;
 
-import lombok.Getter;
-
 import java.util.Objects;
+import org.springframework.data.annotation.Id;
 
 public class FileDetails {
-    private String fileName;
-    private String filePath;
-    private long fileSize;
-    private String fileExtension;
 
-    public FileDetails(String fileName, String filePath, long fileSize, String fileExtension) {
-        this.fileName = fileName;
-        this.filePath = filePath;
-        this.fileSize = fileSize;
-        this.fileExtension = fileExtension;
-    }
+  @Id
+  private String fileName;
+  private String filePath;
+  private long fileSize;
+  private String fileExtension;
 
-    public FileDetails() {
-    }
+  public FileDetails(String fileName, String filePath, long fileSize, String fileExtension) {
+    this.fileName = fileName;
+    this.filePath = filePath;
+    this.fileSize = fileSize;
+    this.fileExtension = fileExtension;
+  }
 
-    public String getFileName() {
-        return fileName;
-    }
+  public FileDetails() {
+  }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
+  public String getFileName() {
+    return fileName;
+  }
 
-    public String getFilePath() {
-        return filePath;
-    }
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
+  public String getFilePath() {
+    return filePath;
+  }
 
-    public long getFileSize() {
-        return fileSize;
-    }
+  public void setFilePath(String filePath) {
+    this.filePath = filePath;
+  }
 
-    public void setFileSize(long fileSize) {
-        this.fileSize = fileSize;
-    }
+  public long getFileSize() {
+    return fileSize;
+  }
 
-    public String getFileExtension() {
-        return fileExtension;
-    }
+  public void setFileSize(long fileSize) {
+    this.fileSize = fileSize;
+  }
 
-    public void setFileExtension(String fileExtension) {
-        this.fileExtension = fileExtension;
-    }
+  public String getFileExtension() {
+    return fileExtension;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        FileDetails that = (FileDetails) o;
-        return fileSize == that.fileSize &&
-                fileName.equals(that.fileName) &&
-                filePath.equals(that.filePath) &&
-                fileExtension.equals(that.fileExtension);
-    }
+  public void setFileExtension(String fileExtension) {
+    this.fileExtension = fileExtension;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(fileName, filePath, fileSize, fileExtension);
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    FileDetails that = (FileDetails) o;
+    return fileSize == that.fileSize &&
+        fileName.equals(that.fileName) &&
+        filePath.equals(that.filePath) &&
+        fileExtension.equals(that.fileExtension);
+  }
 
-    @Override
-    public String toString() {
-        return "FileDetails{" +
-                "fileName='" + fileName + '\'' +
-                ", filePath='" + filePath + '\'' +
-                ", fileSize=" + fileSize +
-                ", fileExtension='" + fileExtension + '\'' +
-                '}';
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(fileName, filePath, fileSize, fileExtension);
+  }
+
+  @Override
+  public String toString() {
+    return "FileDetails{" +
+        "fileName='" + fileName + '\'' +
+        ", filePath='" + filePath + '\'' +
+        ", fileSize=" + fileSize +
+        ", fileExtension='" + fileExtension + '\'' +
+        '}';
+  }
 }
